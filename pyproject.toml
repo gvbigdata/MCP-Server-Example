@@ -1,22 +1,19 @@
 [project]
 name = "mcp-server-deployment"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP Server for deployment with FastMCP"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "mcp[cli]>=1.9.0",
+    "mcp>=1.0.0",
 ]
 
 [project.scripts]
 mcp-server = "mcpserver.__main__:main"
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.setuptools]
-package-dir = {"" = "src"}
-
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcpserver"]
